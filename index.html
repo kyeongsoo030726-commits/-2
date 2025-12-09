@@ -146,7 +146,6 @@
       </h1>
       <div class="subtitle">Little memories made of autumn leaves</div>
       <div class="btn-row">
-        <button class="btn" id="openGuide" type="button">About</button>
         <button class="btn accent" id="startApp" type="button">Start</button>
       </div>
     </div>
@@ -233,7 +232,7 @@
         </div>
 
         <div class="tool-block" id="block-crayon">
-          <button class="pill" id="btnCrayon" aria-label="크레파스" type="button">🖍</button>
+          <button class="pill" id="btnCrayon" aria-label="크레파스" type="button">크레파스스</button>
           <div class="tool-controls">
             <div class="row"><label class="ssuk">색상 <input type="color" id="penColor" value="#3B3B3B"></label></div>
             <div class="row"><label class="ssuk">굵기 <input type="range" id="penSize" min="2" max="40" value="12"></label></div>
@@ -241,21 +240,21 @@
         </div>
 
         <div class="tool-block" id="block-eraser">
-          <button class="pill" id="btnEraser" aria-label="지우개" type="button">🩹</button>
+          <button class="pill" id="btnEraser" aria-label="지우개" type="button">지우개</button>
           <div class="tool-controls">
             <div class="row"><label class="ssuk">크기 <input type="range" id="eraserSize" min="5" max="40" value="16"></label></div>
           </div>
         </div>
 
         <div class="tool-block" id="block-trash">
-          <button class="pill" id="btnTrash" aria-label="휴지통" type="button">🗑️</button>
+          <button class="pill" id="btnTrash" aria-label="휴지통" type="button">휴지통</button>
           <div class="tool-controls">
             <div class="row"><small class="ssuk">활성화 후 엽서 위 이미지를 클릭하면 삭제됩니다.</small></div>
           </div>
         </div>
 
         <div class="tool-block" id="block-stamp">
-          <button class="pill" id="btnStamp" aria-label="도장" type="button">🔖</button>
+          <button class="pill" id="btnStamp" aria-label="도장" type="button">도장</button>
           <div class="tool-controls">
             <div class="row" id="stampChooser" style="gap:8px;flex-wrap:wrap"></div>
           </div>
@@ -267,13 +266,7 @@
   <!-- Save FAB -->
   <button class="save-fab" id="saveBtn" type="button">엽서 보내기</button>
 
-  <!-- Guide Modal -->
-  <div class="modal" id="guideModal" role="dialog" aria-modal="true" aria-label="설명서">
-    <div class="modal-card">
-      <button class="modal-close" id="closeGuide" type="button">✕</button>
-      <img src="설명서.jpg" alt="설명서"/>
-    </div>
-  </div>
+  
 
   <script>
     /* ---------- Landing → App ---------- */
@@ -282,10 +275,8 @@
     const saveFab=document.getElementById('saveBtn');
 
     const startBtn = document.getElementById('startApp');
-    const aboutBtn = document.getElementById('openGuide');
 
-    const guideModal=document.getElementById('guideModal');
-    const closeGuide=document.getElementById('closeGuide');
+   
 
     // 앱은 처음엔 클릭 비활성 (랜딩이 최상위)
     app.style.pointerEvents = 'none';
@@ -303,9 +294,7 @@
     }
 
     startBtn.addEventListener('click', openApp, {passive:false});
-    aboutBtn.addEventListener('click', (e)=>{ e.preventDefault(); guideModal.classList.add('open'); }, {passive:false});
-    closeGuide.addEventListener('click',()=>guideModal.classList.remove('open'));
-    guideModal.addEventListener('click',(e)=>{if(e.target===guideModal) guideModal.classList.remove('open');});
+ 
 
     // 엽서 위 안내 말풍선 7초 후 제거
     function scheduleIntroBubbleRemoval(){
@@ -831,4 +820,5 @@
     });
   </script>
 </body>
+
 </html>
